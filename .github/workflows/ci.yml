@@ -21,7 +21,7 @@ jobs:
       - name: Install ESLint and dependencies
         run: |
           npm init -y
-          npm install eslint eslint-plugin-chrome --save-dev
+          npm install eslint --save-dev
       
       - name: Create ESLint config if it doesn't exist
         run: |
@@ -30,11 +30,12 @@ jobs:
               "env": {
                 "browser": true,
                 "es2021": true,
-                "webextensions": true
+                "webextensions": true,
+                "jest": true,
+                "node": true
               },
               "extends": [
-                "eslint:recommended",
-                "plugin:chrome/recommended"
+                "eslint:recommended"
               ],
               "parserOptions": {
                 "ecmaVersion": "latest",
