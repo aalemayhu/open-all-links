@@ -1,8 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Open All Links</title></head>
-  <body>
-    <button id="openLinks">Open All Links</button>
-    <script src="popup.js"></script>
-  </body>
+<head>
+  <title>Open All Links</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 300px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #e1e4e8;
+      padding-bottom: 10px;
+    }
+    
+    .logo {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .btn {
+      background-color: #4285F4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+    }
+    
+    .btn:hover {
+      background-color: #3367d6;
+    }
+    
+    .btn:active {
+      background-color: #2a56c6;
+    }
+    
+    .btn-icon {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+    
+    .options {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .option-row {
+      display: flex;
+      align-items: center;
+    }
+    
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    
+    .status {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+    }
+    
+    .counter {
+      font-weight: bold;
+      color: #4285F4;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" alt="Logo" class="logo">
+    <h1>Open All Links</h1>
+  </div>
+  
+  <div class="container">
+    <button id="openLinks" class="btn">
+      <span class="btn-icon">🔗</span> Open All Links
+    </button>
+    
+    <div class="options">
+      <div class="option-row">
+        <input type="checkbox" id="filterHttp" checked>
+        <label for="filterHttp">Only HTTP/HTTPS links</label>
+      </div>
+      <div class="option-row">
+        <input type="checkbox" id="excludeVisited">
+        <label for="excludeVisited">Exclude already visited links</label>
+      </div>
+    </div>
+    
+    <div class="status">
+      <span id="linkCount" class="counter">0</span> links found on this page
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
 </html>
